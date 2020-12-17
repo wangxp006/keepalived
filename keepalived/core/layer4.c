@@ -244,7 +244,7 @@ udp_bind_connect(int fd, conn_opts_t *co, uint8_t *payload, uint16_t payload_len
 	int err;
 
 	/* Ensure we don't leak our stack */
-	if (!payload) {
+	if (payload) {
 		set_buf(buf, sizeof(buf));
 		payload = PTR_CAST(uint8_t, buf);
 		payload_len = sizeof(buf);
